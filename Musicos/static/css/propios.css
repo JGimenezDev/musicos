@@ -1,0 +1,24 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ul-propio {
+    display: inline;
+}
+
+.li-propio {
+    display: inline-block;
+}
+
+.a-propio {
+    display: inline-block;
+    text-decoration: none;
+    background-color: lightblue;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.a-propio:hover {
+    background-color: darkblue;
+    color: #fff;
+}

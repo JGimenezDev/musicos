@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de canciones
+{% endblock title %}
+    
+
+{% block content %}
+{% include 'includes/nav.html' %}
+
+<h1>Detalle de canción</h1>
+<table border="1" style="text-align: center; width: 400px;">
+    <tr>
+        <th>Título</th>
+        <td>{{cancion.titulo}}</td>
+    </tr>
+    <tr>
+        <th>Artista</th>
+        <td>{{cancion.artista}}</td>
+    </tr>
+    <tr>
+        <th>Tono original</th>
+        <td>{{cancion.tono_original}}</td>
+    </tr>
+    
+    <tr>
+        <th>Cantante</th>
+        <td>
+            <ul style="margin: 0; padding: 0; list-style: none;">
+                {% for c in cancion.cantantes.all %}
+                    <li> {{ c.nombre }} </li>
+                {% endfor %}    
+            </ul>
+        </td>
+    </tr>
+    
+    {% if cancion.tono_cantante != None %}
+        <tr>
+            <th>Tono cantante</th>
+            <td>{{cancion.tono_cantante}}</td>
+        </tr>
+    {% endif %}
+        
+</table>
+
+<button>
+    <a href="{% url 'app_cancion:editar_cancion' cancion.id %}">Modificar</a>
+</button>
+<button>
+    <a href="{% url 'app_cancion:eliminar_cancion' cancion.id %}">Eliminar</a>
+</button>
+<button>
+    <a style="text-decoration: none;" href="{% url 'app_cancion:lista_de_canciones' %}">Volver</a>
+</button>
+
+{% endblock content %}
+

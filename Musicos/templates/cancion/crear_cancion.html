@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de canciones
+{% endblock title %}
+    
+
+{% block content %}
+{% include 'includes/nav.html' %}
+
+<h1>Crear nueva canción</h1>
+
+<form method="post">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Agregar">
+</form>
+
+<button>
+    <a style="text-decoration: none;" href="{% url 'app_artista:crear_artista' %}">Agregar Artista</a>
+</button>
+<button>
+    <a style="text-decoration: none;" href="{% url 'app_cantante:crear_cantante' %}">Agregar Cantante</a>
+</button>
+
+{% endblock content %}

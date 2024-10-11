@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de canciones
+{% endblock title %}
+    
+
+{% block content %}
+{% include 'includes/nav.html' %}
+
+<h1>Detalle de artista</h1>
+<h3>
+    {{ artista.nombre }}
+</h3>
+
+<br>
+<button>
+    <a href="{% url 'app_artista:editar_artista' artista.id %}">Modificar</a>
+</button>
+<button>
+    <a href="{% url 'app_artista:eliminar_artista' artista.id %}">Eliminar</a>
+</button>
+<button>
+    <a style="text-decoration: none;" href="{% url 'app_artista:lista_de_artistas' %}">Volver</a>
+</button>
+
+{% endblock content %}

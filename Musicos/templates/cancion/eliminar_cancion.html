@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de canciones
+{% endblock title %}
+    
+
+{% block content %}
+{% include 'includes/nav.html' %}
+
+<h1>Eliminar canción</h1>
+
+<form method="post">{% csrf_token %}
+    <p>Desea eliminar la canción: {{cancion.titulo}} </p>
+    <input type="submit" value="Eliminar">
+</form>
+
+<button>
+    <a style="text-decoration: none;" href="{% url 'app_cancion:detalle_cancion' cancion.id %}">Volver</a>
+</button>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de canciones
+{% endblock title %}
+    
+
+{% block content %}
+{% include 'includes/nav.html' %}
+
+<h1>Lista de cantantes</h1>
+
+<form method="get">
+    <label> Buscar un cantante
+        <input type="text" name="cant" id="cant">
+    </label>
+    <input type="submit" value="Buscar">
+</form>
+
+<ul>
+    {% for c in cantantes %}
+        <li>
+            {{c.nombre}} - <a style="text-decoration: none;" href="{% url 'app_cantante:detalle_cantante' c.id %}"><em>(ver)</em></a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

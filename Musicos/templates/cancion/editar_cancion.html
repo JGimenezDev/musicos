@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Lista de canciones
+{% endblock title %}
+    
+
+{% block content %}
+{% include 'includes/nav.html' %}
+
+<h1>Editar canción</h1>
+
+<form method="post">{% csrf_token %}
+    
+    <p><label>Título:
+        {{form.titulo}}
+    </label></p>
+
+    <p><label>Artista:
+        {{form.artista}}
+    </label></p>
+
+    <p><label>Tono original:
+        {{form.tono_original}}
+    </label></p>
+
+    <p><label>Cantantes:
+        {{ form.cantantes }}
+    </label></p>
+
+    <p><label>Tono cantante:
+        {{ form.tono_cantante }}
+    </label></p>
+
+    <input type="submit" value="Modificar">
+</form>
+
+<button>
+    <a style="text-decoration: none;" href="{% url 'app_cancion:detalle_cancion' cancion.id %}">Volver</a>
+</button>
+
+{% endblock content %}
